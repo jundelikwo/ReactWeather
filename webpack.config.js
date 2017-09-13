@@ -30,7 +30,8 @@ module.exports = {
             WeatherForm: 'app/components/WeatherForm.jsx',
             WeatherMessage: 'app/components/WeatherMessage.jsx',
             ErrorModal: 'app/components/ErrorModal.jsx',
-            openWeatherMap: 'app/api/openWeatherMap.jsx'
+            openWeatherMap: 'app/api/openWeatherMap.jsx',
+            applicationStyles: 'app/styles/app.css'
         },
         extensions: ['','.js','.jsx']
     },
@@ -43,7 +44,7 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015', 'stage-0']
                 },*/
-                tisest: /\.jsx?$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
             }
         ]
