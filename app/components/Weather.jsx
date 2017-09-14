@@ -16,7 +16,9 @@ class Weather extends React.Component{
     handleSearch(location){
         this.setState({
             isLoading: true,
-            errorMessage: null
+            errorMessage: null,
+            location: null,
+            temp: null
         })
         openWeatherMap.getTemp(location).then(function(temp){
             this.setState({
@@ -30,6 +32,24 @@ class Weather extends React.Component{
                 errorMessage: e.message
             })
         }.bind(this));
+    }
+
+    componentDidMount(){
+        var location = this.props.location.query.location;
+
+        if(location && location.length > 0){
+            this.handleSearch(location);
+            window.location.hash = '#/'
+        }
+    }
+
+    componentWillReceiveProps(newProps){
+        var location = newProps.location.query.location;
+
+        if(location && location.length > 0){
+            this.handleSearch(location);
+            window.location.hash = '#/'
+        }
     }
 
     render() {
